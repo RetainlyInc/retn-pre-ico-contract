@@ -1,2 +1,2 @@
-# ret-smart-contracts
-retainly token preico contract
+# retn-smart-contracts
+retainly token for preico contract
