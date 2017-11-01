@@ -121,7 +121,7 @@ contract Retn8PreIco is Ownable {
     uint256 weiAmount = msg.value;
     uint256 rate = getRate();
     uint256 tokens = weiAmount.mul(rate);
-
+    require(tokensAvailable() >= tokens);
     BoughtTokens(msg.sender, tokens, weiAmount);
 
     // Increment raised amount
