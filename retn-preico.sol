@@ -71,7 +71,7 @@ contract Retn8PreIco is Ownable {
   uint256 public constant START = 1508932800; // 10/25/2017 @ 12:00pm (UTC)
   uint256 public constant DAYS = 21; 
   uint public creationTime;
-  uint256 public constant initialTokens = 15000000 * 10**18; // Initial number of tokens available
+  uint256 public constant initialTokens = 150000000 * 10**18; // Initial number of tokens available
   bool public initialized = false;
   uint256 public raisedAmount = 0;
 
