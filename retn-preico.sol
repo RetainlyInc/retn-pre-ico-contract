@@ -85,7 +85,7 @@ contract Retn8PreIco is Ownable {
   }
 
   function Retn8PreIco(address _tokenAddr) {
-      require(_tokenAddr != 0);
+      require(_tokenAddr != address(0));
       token = Token(_tokenAddr);
   }
   
