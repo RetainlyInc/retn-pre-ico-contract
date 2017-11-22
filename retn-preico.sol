@@ -79,7 +79,7 @@ contract Retn8PreIco is Ownable {
 
   modifier whenSaleIsActive() {
     // Check if sale is active
-    assert(isActive());
+    require(isActive());
 
     _;
   }
@@ -154,7 +154,7 @@ contract Retn8PreIco is Ownable {
   function destroy() onlyOwner {
     // Transfer tokens back to owner
     uint256 balance = token.balanceOf(this);
-    assert(balance > 0);
+    require(balance > 0);
     token.transfer(owner, balance);
 
     // There should be no ether in the contract but just in case
