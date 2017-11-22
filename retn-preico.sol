@@ -148,28 +148,25 @@ contract Retn8PreIco is Ownable {
     return token.balanceOf(from);
   }
 
-  /**
-   * @notice Terminate contract and refund to owner
-   */
-  function destroy() onlyOwner {
+  function drain() onlyOwner {
+  require(!isActive());
+
     // Transfer tokens back to owner
     uint256 balance = token.balanceOf(this);
     require(balance > 0);
+    owner.transfer(this.balance);
     token.transfer(owner, balance);
-
-    // There should be no ether in the contract but just in case
-    selfdestruct(owner);
   }
 
   /**
    * @notice Get bonus rates
    */
   function getRate() constant returns(uint) {
-    if (creationTime + 1 weeks > now) {
+    if (creationTime + 1 weeks >= now) {
             return 1684; //number of tokens in week 1
-    } else if (creationTime + 2 weeks > now) {
+    } else if (creationTime + 2 weeks >= now) {
             return 1588; //number of tokens in week 2
-    } else if (creationTime + 3 weeks > now) {
+    } else if (creationTime + 3 weeks >= now) {
             return 1504; //number of tokens in week 3
     } else {
             return 1203;
